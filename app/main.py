@@ -28,7 +28,7 @@ def list_tasks():
 
 @app.patch("/tasks/{task_id}")
 def update_task(task_id: int, task: TaskUpdate):
-    updated = service.update_task(task_id, task.dict())
+    updated = service.update_task(task_id, task.model_dump())
     if not updated:
         raise HTTPException(status_code=404, detail="Task not found")
     return updated
