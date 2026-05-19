@@ -2,6 +2,7 @@ from fastapi import FastAPI, HTTPException
 from app.schemas import TaskCreate, TaskUpdate
 from app.service import TaskService
 
+
 app = FastAPI()
 service = TaskService()
 
