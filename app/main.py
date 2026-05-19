@@ -6,9 +6,11 @@ from app.service import TaskService
 app = FastAPI()
 service = TaskService()
 
+
 @app.get("/")
 def root():
     return {"message": "Task API running"}
+
 
 @app.post("/tasks")
 def create_task(task: TaskCreate):
@@ -18,9 +20,11 @@ def create_task(task: TaskCreate):
         task.priority
     )
 
+
 @app.get("/tasks")
 def list_tasks():
     return service.get_tasks()
+
 
 @app.patch("/tasks/{task_id}")
 def update_task(task_id: int, task: TaskUpdate):
@@ -28,6 +32,7 @@ def update_task(task_id: int, task: TaskUpdate):
     if not updated:
         raise HTTPException(status_code=404, detail="Task not found")
     return updated
+
 
 @app.delete("/tasks/{task_id}")
 def delete_task(task_id: int):

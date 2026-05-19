@@ -7,11 +7,13 @@ class TaskCreate(BaseModel):
     description: Optional[str] = None
     priority: int = 1
 
+
 class TaskUpdate(BaseModel):
     title: Optional[str] = None
     description: Optional[str] = None
     completed: Optional[bool] = None
     priority: Optional[int] = None
+
 
 class TaskResponse(BaseModel):
     id: int
