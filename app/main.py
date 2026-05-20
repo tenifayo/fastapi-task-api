@@ -33,7 +33,9 @@ def get_tasks(db: Session = Depends(get_db)):
 
 @app.patch("/tasks/{task_id}")
 def update_task(task_id: int, completed: bool, db: Session = Depends(get_db)):
-    task = db.query(models.TaskModel).filter(models.TaskModel.id == task_id).first()
+    task = db.query(models.TaskModel).filter(
+        models.TaskModel.id == task_id
+    ).first()
 
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
@@ -45,7 +47,9 @@ def update_task(task_id: int, completed: bool, db: Session = Depends(get_db)):
 
 @app.delete("/tasks/{task_id}")
 def delete_task(task_id: int, db: Session = Depends(get_db)):
-    task = db.query(models.TaskModel).filter(models.TaskModel.id == task_id).first()
+    task = db.query(models.TaskModel).filter(
+        models.TaskModel.id == task_id
+    ).first()
 
     if not task:
         raise HTTPException(status_code=404, detail="Task not found")
