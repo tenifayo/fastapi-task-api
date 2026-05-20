@@ -11,7 +11,10 @@ Base.metadata.create_all(bind=engine)
 
 
 @app.post("/tasks")
-def create_task(title: str, description: str = None, priority: int = 1, db: Session = Depends(get_db)):
+def create_task(title: str,
+                description: str = None,
+                priority: int = 1,
+                db: Session = Depends(get_db)):
     task = models.Task(
         title=title,
         description=description,
