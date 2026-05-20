@@ -31,10 +31,10 @@ def get_tasks(db: Session = Depends(get_db)):
 
 @app.patch("/tasks/{task_id}")
 def update_task(
-    task_id: int, 
-    task_in: TaskUpdate, 
+    task_id: int,
+    task_in: TaskUpdate,
     db: Session = Depends(get_db)
-    ):
+):
     task = db.query(models.TaskModel).filter(
         models.TaskModel.id == task_id
     ).first()
