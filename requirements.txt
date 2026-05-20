@@ -4,3 +4,6 @@ pydantic
 pytest
 flake8
 httpx
+python-dotenv
+sqlalchemy
+psycopg2-binary
